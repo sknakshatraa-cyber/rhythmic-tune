@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RhythmicTunes: Your Melodic Companion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom animations for rhythmic feel */
+        @keyframes pulse-rhythm { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        @keyframes fade-in { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .rhythm-pulse { animation: pulse-rhythm 2s ease-in-out infinite; }
+        .fade-in { animation: fade-in 1s ease-out; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; color: #333; }
+        .hero-bg { background: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/42a90921-2234-4765-a988-053c4a7436ed.png') center/cover no-repeat; position: relative; overflow: hidden; }
+        .hero-text { text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+        .feature-card { transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        .testi-card { background: rgba(255,255,255,0.9); border-radius: 8px; }
+        .accordion { cursor: pointer; padding: 15px; background: #f9f9f9; margin: 10px 0; border-radius: 5px; transition: background 0.3s; }
+        .accordion.active { background: #e0e0e0; }
+        .panel { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .grid-reflow > * { animation: fade-in 0.8s ease-out; }
+        footer { background: #2d3748; color: #a0aec0; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Simple audio icon using Font Awesome for logo simulation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gradient-to-br from-blue-400 to-purple-600 text-gray-800">
+    <!-- Header -->
+    <header class="bg-white bg-opacity-90 shadow-md py-4 px-6 flex justify-between items-center fixed top-0 w-full z-10">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-music text-2xl text-purple-600 rhythm-pulse"></i>
+            <h1 class="text-2xl font-bold text-gray-800">RhythmicTunes</h1>
+        </div>
+        <nav class="hidden md:flex space-x-6">
+            <a href="#hero" class="hover:text-purple-600 transition">Home</a>
+            <a href="#features" class="hover:text-purple-600 transition">Features</a>
+            <a href="#testimonials" class="hover:text-purple-600 transition">Testimonials</a>
+            <a href="#how-it-works" class="hover:text-purple-600 transition">How It Works</a>
+        </nav>
+        <button onclick="toggleMenu()" class="md:hidden"><i class="fas fa-bars"></i></button>
+        <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-white shadow-md hidden">
+            <a href="#hero" class="block px-6 py-2 hover:bg-gray-100">Home</a>
+            <a href="#features" class="block px-6 py-2 hover:bg-gray-100">Features</a>
+            <a href="#testimonials" class="block px-6 py-2 hover:bg-gray-100">Testimonials</a>
+            <a href="#how-it-works" class="block px-6 py-2 hover:bg-gray-100">How It Works</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg min-h-screen flex items-center justify-center pt-24">
+        <div class="text-center text-white hero-text container mx-auto px-6">
+            <h2 class="text-5xl md:text-7xl font-bold mb-4 fade-in">Your Melodic Companion</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto slide-in">Discover the rhythms of life with RhythmicTunes. Perfect for college students to compose, learn, and unwind with personalized music experiences that enhance creativity and focus.</p>
+            <button class="bg-purple-600 hover:bg-purple-800 text-white py-3 px-8 rounded-full font-semibold transition transform hover:scale-105" onclick="downloadApp()">Get Started Free</button>
+            <div class="mt-8">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a42a541e-a1c5-4245-822a-7cbc521e0e51.png" alt="Musical notes floating above a college campus with students collaborating on laptops and headphones in a vibrant, modern university library filled with diverse bookshelves and study pods" class="rounded-lg shadow-lg mx-auto fade-in" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-bold text-center mb-12 text-gray-800">Why College Students Love RhythmicTunes</h3>
+            <div class="grid md:grid-cols-3 gap-8 grid-reflow">
+                <div class="feature-card bg-gray-50 p-6 text-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d499fbd0-b8f4-411d-a06a-79e1588f76a0.png" alt="Diverse group of college students in a circle, playing musical instruments like guitars and drums in a cozy campus lounge with colorful walls and bean bags" class="rounded mb-4 mx-auto" />
+                    <h4 class="text-2xl font-semibold mb-4">Collaborative Composition</h4>
+                    <p>Team up with classmates to create beats and melodies. Ideal for group projects and music clubs.</p>
+                </div>
+                <div class="feature-card bg-gray-50 p-6 text-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c3a43df4-6aed-439b-8f80-39d6a616370f.png" alt="Focused student wearing headphones, studying late at night in a quiet dorm room with a laptop displaying rhythm patterns, surrounded by textbooks and a coffee mug" class="rounded mb-4 mx-auto" />
+                    <h4 class="text-2xl font-semibold mb-4">Focus & Study Modes</h4>
+                    <p>Custom playlists to boost concentration during exams or enhance your study flow with melodic rhythms.</p>
+                </div>
+                <div class="feature-card bg-gray-50 p-6 text-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1ddfc186-80eb-4771-8e24-c29a4beba162.png" alt="Happy student dancing in a park with open laptop, representing creative exploration with nature elements like trees and clouds in the background" class="rounded mb-4 mx-auto" />
+                    <h4 class="text-2xl font-semibold mb-4">Creative Exploration</h4>
+                    <p>Unleash your inner artist with tools to experiment with rhythms, genres, and effects tailored for learning music theory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 bg-purple-100">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-bold text-center mb-12 text-gray-800">What Our Users Say</h3>
+            <div class="flex flex-wrap justify-center">
+                <div class="testi-card p-8 m-4 max-w-sm fade-in">
+                    <p>"As a music major, RhythmicTunes has revolutionized how I practice rhythms. It's like having a tutor in my pocket!" - Alex, Music Student</p>
+                </div>
+                <div class="testi-card p-8 m-4 max-w-sm fade-in">
+                    <p>"Great for unwinding after long study sessions. The personalized tunes help me relax and recharge." - Jess, Psychology Student</p>
+                </div>
+                <div class="testi-card p-8 m-4 max-w-sm fade-in">
+                    <p>"Our band uses it for collaborations. So intuitive and fun—perfect for college creatives!" - Mike, Engineering Student</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-bold text-center mb-12 text-gray-800">How It Works</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3a323aa3-6ad3-4aa9-adb9-62c4ebb6e699.png" alt="Step-by-step illustration showing a student logging into RhythmicTunes app on smartphone, selecting rhythm modes in a clean, futuristic interface with purple accents" class="rounded shadow-lg mb-4 fade-in" />
+                </div>
+                <div class="accordion" onclick="toggleAccordion(this)">
+                    <h4 class="font-semibold">Step 1: Sign Up & Customize</h4>
+                    <div class="panel">
+                        <p>Join for free and set your preferences—favorite genres, study times, or collaboration groups. Tailored just for you.</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7a9cc2fa-dc63-462b-8c27-0b27c4b70a44.png" alt="Dynamic visualization of rhythms syncing across devices, with waves, notes, and a collaboration feature showing multiple users connected in a digital music space" class="rounded shadow-lg mb-4 fade-in" />
+                </div>
+                <div class="accordion" onclick="toggleAccordion(this)">
+                    <h4 class="font-semibold">Step 2: Compose & Share</h4>
+                    <div class="panel">
+                        <p>Use our rhythmic tools to create, edit, and share melodies. Integrate with your syllabus or leisure time.</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9a92dd0d-61b9-479a-a431-33b7dccc8b65.png" alt="End-to-end user experience with analytics dashboard showing usage stats, progress in music skills, and recommendations in a sleek, data-driven layout" class="rounded shadow-lg mb-4 fade-in" />
+                </div>
+                <div class="accordion" onclick="toggleAccordion(this)">
+                    <h4 class="font-semibold">Step 3: Grow & Learn</h4>
+                    <div class="panel">
+                        <p>Track your progress, learn new patterns, and connect with a community of college musicians.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 text-center">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="hover:text-purple-400 transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-purple-400 transition"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-purple-400 transition"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>© 2023 RhythmicTunes. All rights reserved. | Brought to you for college melodies.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleAccordion(element) {
+            const panels = document.querySelectorAll('.panel');
+            panels.forEach(panel => {
+                if (panel !== element.nextElementSibling) panel.style.maxHeight = null;
+            });
+            const panel = element.classList.toggle('active') ? element.nextElementSibling : null;
+            if (panel) panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+
+        function downloadApp() {
+            alert('Download link coming soon! Sign up for updates.');
+        }
+
+        // Smooth scroll to sections
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in on scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('fade-in');
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
+</content>
+</create_file>
